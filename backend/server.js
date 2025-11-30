@@ -3,12 +3,16 @@
 // ============================================
 
 const express = require("express");
+// const path = require("path");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const connectDB = require("./config/db");
 
 // Load environment variables
 dotenv.config();
+
+// Load environment variables no matter which directory we run from
+// dotenv.config({ path: path.resolve(__dirname, ".env") });
 
 // Initialize Express app
 const app = express();
