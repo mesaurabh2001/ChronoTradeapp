@@ -1,0 +1,38 @@
+// frontend/src/components/TopNavbar.js
+import React from "react";
+import { Link } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
+
+const TopNavbar = () => {
+  const { user, logout } = useAuth();
+
+  return (
+    <div className="top-navbar">
+      <div className="logo">ChronoTrade</div>
+      <div className="top-links">
+        {user && (
+          <>
+            <Link to="/dashboard">Dashboard</Link>
+            <Link to="/explore">Explore</Link>
+            <Link to="/wishlist">Wishlist</Link>
+          </>
+        )}
+        {!user && (
+          <>
+            <Link to="/login">Login</Link>
+            <Link className="btn-primary" to="/signup">
+              Sign Up
+            </Link>
+          </>
+        )}
+        {user && (
+          <button className="btn-text" onClick={logout}>
+            Logout
+          </button>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default TopNavbar;
