@@ -2,13 +2,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import styles from './TopNavbar.module.css';
+import chronoTrade from "../../assets/chronoTrade.png"
 
 const TopNavbar = () => {
   const { user, logout } = useAuth();
 
   return (
     <div className="top-navbar">
-      <div className="logo">ChronoTrade</div>
+      <div className={`logo ${styles['user-logo-div']}`}>
+          <img className={`${styles['user-logo']}`} src={chronoTrade} />
+          ChronoTrade
+        </div>
       <div className="top-links">
         {user && (
           <>
