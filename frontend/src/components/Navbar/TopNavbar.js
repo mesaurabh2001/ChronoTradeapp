@@ -14,6 +14,10 @@ const TopNavbar = () => {
           <img className={`${styles['user-logo']}`} src={chronoTrade} />
           ChronoTrade
         </div>
+      {/* making text clickable so it routes home */}
+      <Link className="logo" to="/dashboard">
+        ChronoTrade
+      </Link>
       <div className="top-links">
         {user && (
           <>
